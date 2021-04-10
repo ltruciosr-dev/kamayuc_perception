@@ -28,5 +28,13 @@ Perception stack for the exploration task of the Kamayuc/Leo rover.
 
 ### Published topics
 
+## TODO
+
+- [ ] Implement `ARUco` marker detector.
+- [ ] Calibrate `alvar.yaml` that stores artag and detection parameters.
+- [ ] Show ARTag detection on image, filled the pixels.
+- [ ] Implement here visual odometry packages [Visual Odom](https://github.com/klintan/vo-survey).
+
+
 [sensor_msgs/CameraInfo]: http://docs.ros.org/api/sensor_msgs/html/msg/CameraInfo.html
 [sensor_msgs/Image]: http://docs.ros.org/api/sensor_msgs/html/msg/Image.html
