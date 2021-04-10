@@ -1,0 +1,11 @@
+<launch>
+    <!-- If input is PointCloud2 camera -->
+	<arg name="cam_image_topic" default="/zed2/point_cloud/cloud_registered" />
+	<arg name="cam_info_topic" default="/zed2/depth/camera_info" />
+    
+	<node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkers" respawn="false" output="screen">
+		<rosparam command="load" file="$(find kamayuc_localization)/config/alvar.yaml" />
+		<remap from="camera_image"  to="$(arg cam_image_topic)" />
+		<remap from="camera_info"   to="$(arg cam_info_topic)" />
+	</node>
+</launch>
