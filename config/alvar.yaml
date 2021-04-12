@@ -1,4 +1,4 @@
-marker_size: 10.0
+marker_size: 28.2301 #40.3    -   28.2301     - 10
 max_new_marker_error: 0.08
 max_track_error: 0.2
 max_frequency: 2.0
