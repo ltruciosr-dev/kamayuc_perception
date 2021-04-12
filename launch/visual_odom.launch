@@ -1,0 +1,12 @@
+<launch>
+    
+    <node pkg="rtabmap_ros" type="rgbd_odometry" name="visual_odom_p"> <!-- clear_params="true" -->
+        <!-- <param name="odom_frame_id"  value="vi_odom"/>  -->       
+        <param name="publish_tf"  value="false"/>        
+        <remap from="rgb/image" to="/zed2/left/image_rect_color"/>
+        <remap from="depth/image" to="zed2/depth/depth_registered"/>
+        <remap from="rgb/camera_info" to="/zed2/left/camera_info"/>
+        <remap from="odom" to="/visual_odom"/>
+
+    </node>
+</launch>
