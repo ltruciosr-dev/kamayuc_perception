@@ -8,6 +8,13 @@ project(kamayuc_perception)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  rospy
+  std_msgs
+  actionlib_msgs
+  cv_bridge
+  image_transport
+  message_generation
 )
 
 ###################################
@@ -25,3 +32,10 @@ catkin_package(
 #  CATKIN_DEPENDS roscpp rospy std_msgs
 #  DEPENDS system_lib
 )
+
+find_package(OpenCV)
+include_directories(${OpenCV_INCLUDE_DIRS})
+add_executable(read_video_cpp kamayuc_perception/src/read_video.cpp)
+target_link_libraries(read_video_cpp ${catkin_LIBRARIES})
+target_link_libraries(read_video_cpp ${OpenCV_LIBRARIES})
+
