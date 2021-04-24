@@ -33,9 +33,9 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
-find_package(OpenCV)
-include_directories(${OpenCV_INCLUDE_DIRS})
-add_executable(read_video_cpp kamayuc_perception/src/read_video.cpp)
-target_link_libraries(read_video_cpp ${catkin_LIBRARIES})
-target_link_libraries(read_video_cpp ${OpenCV_LIBRARIES})
+# find_package(OpenCV)
+# include_directories(${OpenCV_INCLUDE_DIRS})
+# add_executable(read_video_cpp kamayuc_perception/src/read_video.cpp)
+# target_link_libraries(read_video_cpp ${catkin_LIBRARIES})
+# target_link_libraries(read_video_cpp ${OpenCV_LIBRARIES})
 
