@@ -269,8 +269,10 @@ void imageCallback(const sensor_msgs::ImageConstPtr& msg)
     removeShadow=1; // try to remove shadows (1=Yes 0=No)
 
     src = cv_ptr->image;
+    // cv::resizeWindow(OPENCV_WINDOW, 640, 480);
+    cv::resize(src, src, Size(src.cols/2, src.rows/2)); // to half size or even smaller
     cv::imshow(OPENCV_WINDOW,src);
-    cv::createTrackbar("Rocks size", OPENCV_WINDOW, &minSizeMM,100, onStonesTb, 0);
+    // cv::createTrackbar("Rocks size", OPENCV_WINDOW, &minSizeMM,100, onStonesTb, 0);
     //cv::createTrackbar("ThStone", OPENCV_WINDOW, &thStone, 255, onStonesTb, 0);
     //cv::createTrackbar("ThShadow", OPENCV_WINDOW, &thShadow, 255, onStonesTb, 0);
     //cv::createTrackbar("Remove Shadow?", OPENCV_WINDOW, &removeShadow, 1, onStonesTb, 0);

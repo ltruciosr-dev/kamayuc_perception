@@ -2,20 +2,21 @@ cmake_minimum_required(VERSION 3.0.2)
 project(kamayuc_perception)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
-## Find catkin macros and libraries
-## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  actionlib_msgs
+  aruco
+  aruco_msgs
   cv_bridge
   image_transport
   message_generation
 )
+
+find_package(OpenCV)
 
 ###################################
 ## catkin specific configuration ##
@@ -33,9 +34,15 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
-find_package(OpenCV)
-include_directories(${OpenCV_INCLUDE_DIRS})
-add_executable(read_video_cpp kamayuc_perception/src/read_video.cpp)
-target_link_libraries(read_video_cpp ${catkin_LIBRARIES})
-target_link_libraries(read_video_cpp ${OpenCV_LIBRARIES})
+###########
+## Build ##
+###########
+
+include_directories(
+  ${catkin_INCLUDE_DIRS}
+  ${OpenCV_INCLUDE_DIRS}
+)
+
+add_executable(read_video_cpp src/read_video.cpp)
+target_link_libraries(read_video_cpp ${catkin_LIBRARIES} ${OpenCV_LIBRARIES})
 

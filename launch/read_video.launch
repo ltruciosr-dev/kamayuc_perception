@@ -1,0 +1,13 @@
+<launch>
+<!-- <node name="image_view_node1" pkg="image_view" type="image_view" output="screen" >
+        <remap from="image" to="/zed2/left/image_rect_color"/>
+</node> -->
+
+<node name="read_video_cpp" pkg="kamayuc_perception" type="read_video_cpp" output="screen" >
+        <remap from="image" to="/zed2/left/image_rect_color"/>
+</node>
+
+<!-- <node name="image_view_node2" pkg="image_view" type="image_view" output="screen" >
+        <remap from="image" to="/image_converter_new2_/output_video2"/>
+</node> -->
+</launch>
